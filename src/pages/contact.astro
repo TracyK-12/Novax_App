@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const subject = Astro.url.searchParams.get('subject') || 'projet';
+const subjectLabel = subject === 'devis' ? 'Demande de devis' : 'Demande de projet';
+---
+
+<Layout title="Contact NOVAX | Parlez de votre projet" description="Contactez NOVAX pour discuter d'un projet, d'un devis ou d'une demande de conseil numérique en RDC.">
+  <main class="bg-[#f3f6fc] min-h-screen text-slate-900">
+    <section class="border-b border-slate-200 bg-white/90 backdrop-blur">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
+        <a href="/" class="text-xl font-black tracking-tight text-slate-950">
+          NOVAX<span class="text-lime-400">.</span>
+        </a>
+        <a href="/" class="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950">
+          Retour à l'accueil
+        </a>
+      </div>
+    </section>
+
+    <section class="px-6 py-16 lg:px-8">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div>
+          <p class="mb-5 text-xs font-bold uppercase tracking-[0.25em] text-indigo-500">/07 — Contact</p>
+          <h1 class="max-w-xl text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">
+            Parlons de votre <span class="text-indigo-500">projet.</span>
+          </h1>
+
+          <p class="mt-5 max-w-lg text-lg leading-8 text-slate-700">
+            Restez simple et précis. NOVAX étudiera votre besoin et vous répondra par e-mail, WhatsApp ou téléphone.
+          </p>
+
+          <div class="mt-8 space-y-4 text-sm text-slate-700">
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+              <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Email</p>
+              <a href="mailto:kaje.tracy@gmail.com" class="mt-2 inline-block font-semibold text-slate-950 hover:text-indigo-500">kaje.tracy@gmail.com</a>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+              <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">WhatsApp</p>
+              <a href="https://wa.me/33698533864?text=Bonjour%20NOVAX%2C%20je%20souhaite%20discuter%20de%20mon%20projet." target="_blank" rel="noreferrer" class="mt-2 inline-block font-semibold text-slate-950 hover:text-indigo-500">+33 6 98 53 38 64</a>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+              <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Téléphone</p>
+              <a href="tel:+33698533864" class="mt-2 inline-block font-semibold text-slate-950 hover:text-indigo-500">+33 6 98 53 38 64</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] sm:p-8">
+          <div class="mb-6 flex items-center justify-between gap-3">
+            <h2 class="text-2xl font-black text-slate-950">{subjectLabel}</h2>
+            <span class="rounded-full bg-lime-300 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-950">Front-end</span>
+          </div>
+
+          <form id="contact-form" class="space-y-5" novalidate>
+            <div>
+              <label for="name" class="mb-2 block text-sm font-semibold text-slate-700">Nom</label>
+              <input id="name" name="name" type="text" required class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-indigo-400 focus:bg-white" placeholder="Votre nom" />
+              <p class="mt-2 hidden text-sm text-red-600" data-error-for="name">Veuillez renseigner votre nom.</p>
+            </div>
+
+            <div>
+              <label for="email" class="mb-2 block text-sm font-semibold text-slate-700">Email</label>
+              <input id="email" name="email" type="email" required class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-indigo-400 focus:bg-white" placeholder="votre@email.com" />
+              <p class="mt-2 hidden text-sm text-red-600" data-error-for="email">Veuillez renseigner un email valide.</p>
+            </div>
+
+            <div>
+              <label for="project" class="mb-2 block text-sm font-semibold text-slate-700">Votre besoin</label>
+              <textarea id="project" name="project" rows="5" required class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-indigo-400 focus:bg-white" placeholder="Décrivez votre besoin, vos objectifs, votre budget ou votre délai..."></textarea>
+              <p class="mt-2 hidden text-sm text-red-600" data-error-for="project">Merci de préciser votre besoin.</p>
+            </div>
+
+            <button type="submit" class="w-full rounded-full bg-slate-950 px-5 py-3.5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:shadow-xl">
+              Envoyer ma demande
+            </button>
+          </form>
+
+          <div id="form-success" class="mt-5 hidden rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+            Votre demande est prête. Elle peut être envoyée par e-mail ou WhatsApp pour finaliser le contact avec NOVAX.
+          </div>
+
+          <p class="mt-4 text-xs leading-5 text-slate-500">
+            Ce formulaire est une préparation front-end uniquement. Aucune donnée n'est stockée sans backend. Il est conçu pour être facilement connectable à un service e-mail ou CRM plus tard.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const form = document.querySelector('#contact-form');
+    const successMessage = document.querySelector('#form-success');
+    const fields = {
+      name: document.querySelector('#name'),
+      email: document.querySelector('#email'),
+      project: document.querySelector('#project')
+    };
+
+    const setError = (fieldName, hasError) => {
+      const field = fields[fieldName];
+      const error = document.querySelector(`[data-error-for="${fieldName}"]`);
+      if (!field || !error) return;
+      field.classList.toggle('border-red-400', hasError);
+      field.classList.toggle('bg-red-50', hasError);
+      field.classList.toggle('focus:border-red-400', hasError);
+      error.classList.toggle('hidden', !hasError);
+    };
+
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      let isValid = true;
+
+      if (!fields.name?.value.trim()) {
+        setError('name', true);
+        isValid = false;
+      } else {
+        setError('name', false);
+      }
+
+      const emailValue = fields.email?.value.trim() || '';
+      const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);
+      if (!emailIsValid) {
+        setError('email', true);
+        isValid = false;
+      } else {
+        setError('email', false);
+      }
+
+      if (!fields.project?.value.trim()) {
+        setError('project', true);
+        isValid = false;
+      } else {
+        setError('project', false);
+      }
+
+      if (!isValid) {
+        successMessage?.classList.add('hidden');
+        return;
+      }
+
+      const subject = encodeURIComponent('Nouvelle demande NOVAX');
+      const body = encodeURIComponent(
+        `Nom: ${fields.name.value}\nEmail: ${fields.email.value}\n\nBesoin:\n${fields.project.value}`
+      );
+
+      successMessage?.classList.remove('hidden');
+      window.location.href = `mailto:kaje.tracy@gmail.com?subject=${subject}&body=${body}`;
+    });
+  </script>
+</Layout>

@@ -1,16 +1,905 @@
 ---
+import Layout from '../layouts/Layout.astro';
+
+const contact = {
+  email: 'kaje.tracy@gmail.com',
+  phone: '+33698533864',
+  phoneDisplay: '+33 6 98 53 38 64',
+  whatsappUrl: 'https://wa.me/33698533864?text=Bonjour%20NOVAX%2C%20je%20souhaite%20discuter%20de%20mon%20projet.',
+  linkedinUrl: 'https://www.linkedin.com/in/tracy-kaje-2146a1255',
+  githubUrl: 'https://github.com/TracyK-12',
+  portfolioUrl: 'https://tracyk-12.github.io/MonPortfolio/',
+  netFlowUrl: 'https://net-flow-app-sigma.vercel.app/',
+  devisUrl: '/contact?subject=devis',
+  contactUrl: '/contact?subject=projet',
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="NOVAX Digital Solutions">
+  <header id="top" class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
+      <a href="/" class="flex items-center gap-3 text-xl font-black tracking-tight text-slate-950">
+        <img src="/novax-symbole.png" alt="Logo NOVAX" class="h-8 w-8 object-contain" />
+        <span>
+          NOVAX<span class="text-lime-400">.</span>
+          <span class="ml-1 text-[9px] font-medium tracking-[0.25em] text-slate-500">
+            DIGITAL SOLUTIONS
+          </span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-8 text-sm font-medium text-slate-700 md:flex" aria-label="Navigation principale">
+        <a href="/" class="transition hover:text-indigo-500">Accueil</a>
+        <a href="#solutions" class="transition hover:text-indigo-500">Solutions</a>
+        <a href="#services" class="transition hover:text-indigo-500">Services</a>
+        <a href="#realisations" class="transition hover:text-indigo-500">Réalisations</a>
+        <a href="#ressources" class="transition hover:text-indigo-500">Ressources</a>
+        <a href="#a-propos" class="transition hover:text-indigo-500">À propos</a>
+      </nav>
+
+      <a
+        href={contact.contactUrl}
+        class="hidden rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-lg md:block"
+      >
+        Parler de mon projet →
+      </a>
+
+      <button
+        id="menu-button"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        class="flex h-11 w-11 items-center justify-center rounded-full bg-slate-950 text-white md:hidden"
+      >
+        <span class="text-xl">☰</span>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white md:hidden">
+      <nav class="flex flex-col px-6 py-6" aria-label="Navigation mobile">
+        <a href="/" class="border-b border-slate-100 py-4 text-sm font-semibold text-slate-800">Accueil</a>
+        <a href="#solutions" class="border-b border-slate-100 py-4 text-sm font-semibold text-slate-800">Solutions</a>
+        <a href="#services" class="border-b border-slate-100 py-4 text-sm font-semibold text-slate-800">Services</a>
+        <a href="#realisations" class="border-b border-slate-100 py-4 text-sm font-semibold text-slate-800">Réalisations</a>
+        <a href="#ressources" class="border-b border-slate-100 py-4 text-sm font-semibold text-slate-800">Ressources</a>
+        <a href="#a-propos" class="border-b border-slate-100 py-4 text-sm font-semibold text-slate-800">À propos</a>
+        <a href={contact.contactUrl} class="mt-5 rounded-full bg-slate-950 px-5 py-3.5 text-center text-sm font-bold text-white">
+          Parler de mon projet →
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <script>
+    const button = document.querySelector('#menu-button');
+    const menu = document.querySelector('#mobile-menu');
+
+    const closeMenu = () => {
+      menu?.classList.add('hidden');
+      button?.setAttribute('aria-expanded', 'false');
+      button?.setAttribute('aria-label', 'Ouvrir le menu');
+    };
+
+    button?.addEventListener('click', () => {
+      const isOpen = !menu?.classList.contains('hidden');
+      menu?.classList.toggle('hidden');
+      button?.setAttribute('aria-expanded', String(!isOpen));
+      button?.setAttribute('aria-label', isOpen ? 'Ouvrir le menu' : 'Fermer le menu');
+    });
+
+    menu?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+  </script>
+
+  <main>
+    <section class="overflow-hidden bg-[#f3f6fc]">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:px-8 lg:py-28">
+        <div>
+          <div class="mb-6 inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-medium text-slate-600 shadow-sm">
+            Agence de services numériques · RDC
+          </div>
+
+          <h1 class="max-w-3xl text-5xl font-black leading-[0.95] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">
+            <span class="novax-title-line">
+              <span>Votre projet,</span>
+            </span>
+
+            <span class="novax-title-line">
+              <span class="relative inline-block">
+                propulsé
+                <span class="absolute inset-x-0 bottom-1 -z-0 h-4 bg-lime-200 sm:h-5"></span>
+              </span>
+            </span>
+
+            <span class="novax-title-line">
+              <span>par le numérique.</span>
+            </span>
+          </h1>
+
+          <p class="mt-7 max-w-xl text-base leading-7 text-slate-600 sm:text-lg">
+            NOVAX accompagne les entreprises et les particuliers dans leurs projets
+            numériques grâce à l’IA, l’automatisation et des solutions digitales
+            adaptées à leurs besoins.
+          </p>
+
+          <div class="mt-9 flex flex-wrap gap-4">
+            <a
+              href={contact.contactUrl}
+              class="rounded-full bg-slate-950 px-6 py-3.5 text-sm font-bold text-white transition hover:-translate-y-1 hover:shadow-xl"
+            >
+              Parler de mon projet →
+            </a>
+
+            <a
+              href="#solutions"
+              class="rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-bold text-slate-900 transition hover:border-slate-950"
+            >
+              Découvrir nos solutions
+            </a>
+          </div>
+        </div>
+
+        <div class="relative mx-auto flex h-[380px] w-full max-w-lg items-center justify-center">
+          <div class="absolute h-72 w-72 rounded-full bg-indigo-100 novax-float"></div>
+          <div class="absolute h-56 w-56 rounded-full border border-indigo-300/60"></div>
+          <div class="absolute h-40 w-40 rounded-full border border-indigo-300/50"></div>
+
+          <div class="relative z-10 flex h-32 w-32 rotate-45 items-center justify-center rounded-3xl bg-slate-950 shadow-2xl">
+            <div class="absolute h-20 w-5 rounded-full bg-lime-300"></div>
+            <div class="absolute h-20 w-5 rotate-90 rounded-full bg-indigo-400"></div>
+          </div>
+
+          <span class="absolute left-16 top-20 h-3 w-3 rounded-full bg-lime-300 novax-pulse"></span>
+          <span class="absolute right-20 top-24 h-3 w-3 rounded-full bg-indigo-500"></span>
+          <span class="absolute bottom-20 left-24 h-2.5 w-2.5 rounded-full bg-slate-950"></span>
+
+          <div class="absolute right-2 top-24 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold shadow-md">
+            IA & automatisation
+          </div>
+
+          <div class="absolute bottom-20 right-10 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold shadow-md">
+            Solutions digitales
+          </div>
+
+          <div class="absolute bottom-10 left-8 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold shadow-md">
+            Sur mesure
+          </div>
+
+          <div class="novax-orbit">
+            <span class="novax-orbit-dot novax-dot-green"></span>
+            <span class="novax-orbit-dot novax-dot-blue"></span>
+            <span class="novax-orbit-dot novax-dot-dark"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-y border-slate-200 bg-lime-300">
+        <div class="mx-auto flex max-w-7xl items-center justify-center gap-8 overflow-hidden px-6 py-3 text-[10px] font-bold uppercase tracking-[0.25em] text-slate-950">
+          <span>IA & AUTOMATISATION</span>
+          <span>•</span>
+          <span>SOLUTIONS DIGITALES</span>
+          <span>•</span>
+          <span>DATA</span>
+          <span>•</span>
+          <span>CRÉATION</span>
+          <span>•</span>
+          <span>ACCOMPAGNEMENT</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="solutions" class="novax-reveal bg-white px-6 py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-14 max-w-2xl">
+          <p class="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-indigo-500">
+            /01 — Nos solutions
+          </p>
+
+          <h2 class="text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">
+            Deux univers,
+            <span class="text-indigo-500">une même exigence.</span>
+          </h2>
+
+          <p class="mt-5 max-w-xl text-slate-600">
+            Que vous soyez une entreprise ou un particulier, NOVAX vous accompagne
+            avec des solutions numériques adaptées à vos besoins.
+          </p>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-2">
+          <article class="group relative overflow-hidden rounded-3xl bg-lime-300 p-8 transition duration-300 hover:-translate-y-2 hover:shadow-2xl sm:p-10 novax-reveal">
+            <div class="relative z-10">
+              <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-700">Pour les entreprises</p>
+
+              <h3 class="mt-5 max-w-md text-3xl font-black leading-tight text-slate-950 sm:text-4xl">
+                Digitalisez, automatisez, structurez.
+              </h3>
+
+              <p class="mt-5 max-w-lg leading-7 text-slate-800">
+                Des solutions digitales pour gagner en efficacité, simplifier
+                vos processus et développer votre activité.
+              </p>
+
+              <div class="mt-7 flex flex-wrap gap-2">
+                <span class="rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold">IA & automatisation</span>
+                <span class="rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold">Sites web</span>
+                <span class="rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold">Data</span>
+                <span class="rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold">Gestion de projet</span>
+              </div>
+
+              <a href="#services" class="mt-8 inline-flex rounded-full bg-slate-950 px-5 py-3 text-sm font-bold text-white transition hover:scale-105">
+                Explorer les solutions →
+              </a>
+            </div>
+
+            <div class="absolute -bottom-20 -right-16 h-56 w-56 rotate-45 rounded-[3rem] border-[24px] border-lime-200/60"></div>
+          </article>
+
+          <article class="group relative overflow-hidden rounded-3xl bg-indigo-400 p-8 transition duration-300 hover:-translate-y-2 hover:shadow-2xl sm:p-10 novax-reveal">
+            <div class="relative z-10">
+              <p class="text-xs font-bold uppercase tracking-[0.2em] text-white/80">Pour les particuliers</p>
+
+              <h3 class="mt-5 max-w-md text-3xl font-black leading-tight text-slate-950 sm:text-4xl">
+                Lancez votre présence en ligne.
+              </h3>
+
+              <p class="mt-5 max-w-lg leading-7 text-slate-950/80">
+                CV, candidature, formation ou projet : un accompagnement simple
+                pour vous aider à avancer professionnellement.
+              </p>
+
+              <div class="mt-7 flex flex-wrap gap-2">
+                <span class="rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold">CV & candidature</span>
+                <span class="rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold">Recherche d'emploi</span>
+                <span class="rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold">Formation</span>
+                <span class="rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold">Accompagnement</span>
+              </div>
+
+              <a href="#services" class="mt-8 inline-flex rounded-full bg-slate-950 px-5 py-3 text-sm font-bold text-white transition hover:scale-105">
+                Explorer les solutions →
+              </a>
+            </div>
+
+            <div class="absolute -bottom-24 -right-20 h-64 w-64 rounded-full border-[28px] border-indigo-300/60"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="novax-reveal bg-[#f3f6fc] px-6 py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-14 max-w-2xl">
+          <p class="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-indigo-500">
+            /02 — Services
+          </p>
+
+          <h2 class="text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">
+            Tout ce qu'il faut
+            <span class="text-indigo-500"> pour avancer.</span>
+          </h2>
+
+          <p class="mt-5 max-w-xl text-slate-600">
+            Des services numériques pensés pour répondre aux besoins concrets
+            des entreprises et des particuliers.
+          </p>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="group rounded-3xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-2 hover:shadow-xl novax-reveal">
+            <div class="mb-8 flex items-center justify-between">
+              <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-lime-300 font-bold text-slate-950">✦</div>
+              <span class="text-xs font-bold text-slate-400">01</span>
+            </div>
+            <h3 class="text-xl font-black text-slate-950">IA & Automatisation</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">
+              Automatisations intelligentes avec Make, Airtable, OpenAI, Claude et WhatsApp Business pour répondre plus vite, qualifier les demandes et structurer les informations clients.
+            </p>
+            <a href={contact.contactUrl} class="mt-6 inline-block text-sm font-bold text-slate-950">En savoir plus →</a>
+          </article>
+
+          <article class="group rounded-3xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-2 hover:shadow-xl novax-reveal">
+            <div class="mb-8 flex items-center justify-between">
+              <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-indigo-400 font-bold text-white">◇</div>
+              <span class="text-xs font-bold text-slate-400">02</span>
+            </div>
+            <h3 class="text-xl font-black text-slate-950">Sites & Pages vitrines</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">
+              Une présence digitale moderne, claire et adaptée à votre activité.
+            </p>
+            <a href={contact.contactUrl} class="mt-6 inline-block text-sm font-bold text-slate-950">En savoir plus →</a>
+          </article>
+
+          <article class="group rounded-3xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-2 hover:shadow-xl novax-reveal">
+            <div class="mb-8 flex items-center justify-between">
+              <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-lime-300 font-bold text-slate-950">◫</div>
+              <span class="text-xs font-bold text-slate-400">03</span>
+            </div>
+            <h3 class="text-xl font-black text-slate-950">Data & Organisation</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">
+              Organisez vos données, tableaux de suivi et informations pour mieux piloter votre activité.
+            </p>
+            <a href={contact.contactUrl} class="mt-6 inline-block text-sm font-bold text-slate-950">En savoir plus →</a>
+          </article>
+
+          <article class="group rounded-3xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-2 hover:shadow-xl novax-reveal">
+            <div class="mb-8 flex items-center justify-between">
+              <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-indigo-400 font-bold text-white">✎</div>
+              <span class="text-xs font-bold text-slate-400">04</span>
+            </div>
+            <h3 class="text-xl font-black text-slate-950">Création & Branding</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">
+              Logos, supports visuels et éléments de communication pour donner une identité forte à votre projet.
+            </p>
+            <a href={contact.contactUrl} class="mt-6 inline-block text-sm font-bold text-slate-950">En savoir plus →</a>
+          </article>
+
+          <article class="group rounded-3xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-2 hover:shadow-xl novax-reveal">
+            <div class="mb-8 flex items-center justify-between">
+              <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-lime-300 font-bold text-slate-950">◉</div>
+              <span class="text-xs font-bold text-slate-400">05</span>
+            </div>
+            <h3 class="text-xl font-black text-slate-950">Gestion de projet</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">
+              Structurez vos projets, suivez les tâches et avancez avec une organisation claire et efficace.
+            </p>
+            <a href={contact.contactUrl} class="mt-6 inline-block text-sm font-bold text-slate-950">En savoir plus →</a>
+          </article>
+
+          <article class="group rounded-3xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-2 hover:shadow-xl novax-reveal">
+            <div class="mb-8 flex items-center justify-between">
+              <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-indigo-400 font-bold text-white">↗</div>
+              <span class="text-xs font-bold text-slate-400">06</span>
+            </div>
+            <h3 class="text-xl font-black text-slate-950">Accompagnement digital</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">
+              Un accompagnement adapté pour vous aider à transformer une idée en solution concrète.
+            </p>
+            <a href={contact.contactUrl} class="mt-6 inline-block text-sm font-bold text-slate-950">En savoir plus →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="novax-reveal bg-slate-950 px-6 py-24 text-white lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid gap-16 lg:grid-cols-2 lg:items-end">
+          <div>
+            <p class="mb-5 text-xs font-bold uppercase tracking-[0.25em] text-lime-300">/03 — Pourquoi NOVAX</p>
+            <h2 class="max-w-2xl text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+              Un partenaire qui
+              <span class="text-lime-300">comprend votre terrain.</span>
+            </h2>
+            <p class="mt-6 max-w-xl leading-7 text-slate-300">
+              NOVAX propose des solutions numériques pensées pour les réalités des entreprises et des particuliers en RDC.
+            </p>
+          </div>
+
+          <div class="space-y-0">
+            <div class="border-t border-white/15 py-6">
+              <div class="flex gap-6">
+                <span class="text-sm font-bold text-lime-300">01</span>
+                <div>
+                  <h3 class="text-xl font-bold">Pensé pour la RDC</h3>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">
+                    Des solutions adaptées aux besoins et aux réalités du marché local.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-t border-white/15 py-6">
+              <div class="flex gap-6">
+                <span class="text-sm font-bold text-lime-300">02</span>
+                <div>
+                  <h3 class="text-xl font-bold">Une approche accessible</h3>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">
+                    Des outils numériques compréhensibles et adaptés à différents budgets.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-t border-white/15 py-6">
+              <div class="flex gap-6">
+                <span class="text-sm font-bold text-lime-300">03</span>
+                <div>
+                  <h3 class="text-xl font-bold">Du sur-mesure</h3>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">
+                    Chaque projet part de vos besoins et de vos objectifs.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-y border-white/15 py-6">
+              <div class="flex gap-6">
+                <span class="text-sm font-bold text-lime-300">04</span>
+                <div>
+                  <h3 class="text-xl font-bold">Un accompagnement durable</h3>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">
+                    NOVAX vous accompagne au-delà de la simple création de votre solution.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="realisations" class="novax-reveal bg-white px-6 py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <p class="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-indigo-500">/04 — Réalisations</p>
+            <h2 class="max-w-2xl text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">
+              Des idées transformées
+              <span class="text-indigo-500">en solutions.</span>
+            </h2>
+          </div>
+
+          <p class="max-w-md text-sm leading-6 text-slate-600">
+            Découvrez quelques projets et expérimentations réalisés par NOVAX.
+          </p>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-3">
+          <article class="group overflow-hidden rounded-3xl border border-slate-200 bg-[#f3f6fc] novax-reveal">
+            <div class="relative flex h-64 items-center justify-center overflow-hidden bg-indigo-100">
+              <div class="absolute h-40 w-40 rounded-full border-[18px] border-indigo-300"></div>
+              <div class="relative z-10 flex h-24 w-24 rotate-45 items-center justify-center rounded-2xl bg-slate-950 shadow-xl">
+                <span class="-rotate-45 text-2xl font-black text-lime-300">P</span>
+              </div>
+            </div>
+
+            <div class="p-7">
+              <span class="text-xs font-bold uppercase tracking-[0.2em] text-indigo-500">Portfolio</span>
+              <h3 class="mt-3 text-2xl font-black text-slate-950">Mon portfolio</h3>
+              <p class="mt-3 text-sm leading-6 text-slate-600">Portfolio personnel présentant mes compétences, parcours et premières réalisations.</p>
+              <div class="mt-4 flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">
+                <span class="rounded-full bg-white px-2.5 py-1.5">Web</span>
+                <span class="rounded-full bg-white px-2.5 py-1.5">Portfolio</span>
+              </div>
+              <a href={contact.portfolioUrl} target="_blank" rel="noreferrer" class="mt-5 inline-flex text-sm font-bold text-slate-950 transition group-hover:text-indigo-500">
+                Voir le projet →
+              </a>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl border border-slate-200 bg-[#f3f6fc] novax-reveal">
+            <div class="relative flex h-64 items-center justify-center overflow-hidden bg-lime-200">
+              <div class="absolute -right-10 -top-10 h-48 w-48 rounded-full border-[20px] border-lime-100"></div>
+              <div class="relative z-10 rounded-2xl bg-white px-8 py-6 shadow-xl">
+                <span class="text-3xl font-black tracking-tight text-slate-950">N<span class="text-indigo-500">F</span></span>
+              </div>
+            </div>
+
+            <div class="p-7">
+              <span class="text-xs font-bold uppercase tracking-[0.2em] text-indigo-500">Application</span>
+              <h3 class="mt-3 text-2xl font-black text-slate-950">Net Flow</h3>
+              <p class="mt-3 text-sm leading-6 text-slate-600">Application de calcul de salaire net et de prévision des dépenses personnelles.</p>
+              <div class="mt-4 flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">
+                <span class="rounded-full bg-white px-2.5 py-1.5">App web</span>
+                <span class="rounded-full bg-white px-2.5 py-1.5">Finance</span>
+              </div>
+              <a href={contact.netFlowUrl} target="_blank" rel="noreferrer" class="mt-5 inline-flex text-sm font-bold text-slate-950 transition group-hover:text-indigo-500">
+                Voir le projet →
+              </a>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl border border-slate-200 bg-[#f3f6fc] novax-reveal">
+            <div class="relative flex h-64 items-center justify-center overflow-hidden bg-indigo-200">
+              <div class="absolute h-52 w-52 rounded-full border border-indigo-400"></div>
+              <div class="absolute h-36 w-36 rounded-full border border-indigo-400"></div>
+              <div class="absolute h-20 w-20 rounded-full bg-slate-950"></div>
+              <span class="relative z-10 text-xl font-black text-lime-300">GLIDE</span>
+            </div>
+
+            <div class="p-7">
+              <span class="text-xs font-bold uppercase tracking-[0.2em] text-indigo-500">Application interne</span>
+              <h3 class="mt-3 text-2xl font-black text-slate-950">Solution Glide</h3>
+              <p class="mt-3 text-sm leading-6 text-slate-600">Application interne conçue pour répondre à un besoin métier spécifique d’entreprise, avec une logique de gestion adaptée au contexte réel.</p>
+              <div class="mt-4 flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">
+                <span class="rounded-full bg-white px-2.5 py-1.5">No-code</span>
+                <span class="rounded-full bg-white px-2.5 py-1.5">Process</span>
+              </div>
+              <a href={contact.githubUrl} target="_blank" rel="noreferrer" class="mt-5 inline-flex text-sm font-bold text-slate-950 transition group-hover:text-indigo-500">
+                Voir sur GitHub →
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ressources" class="novax-reveal bg-[#f3f6fc] px-6 py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <p class="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-indigo-500">/05 — Conseils & Ressources</p>
+            <h2 class="max-w-2xl text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">
+              Des ressources pour
+              <span class="text-indigo-500">aller plus loin.</span>
+            </h2>
+          </div>
+
+          <p class="max-w-md text-sm leading-6 text-slate-600">
+            Des conseils simples et pratiques pour mieux utiliser le numérique dans votre activité et votre parcours professionnel.
+          </p>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-3">
+          <article class="group rounded-3xl bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl novax-reveal">
+            <div class="mb-10 flex items-center justify-between">
+              <span class="rounded-full bg-lime-300 px-3 py-1.5 text-xs font-bold text-slate-950">Conseils</span>
+              <span class="text-xs font-bold text-slate-400">01</span>
+            </div>
+            <h3 class="text-2xl font-black leading-tight text-slate-950">Mieux utiliser l'IA dans son activité</h3>
+            <p class="mt-4 text-sm leading-6 text-slate-600">
+              Découvrez des façons simples d'utiliser l'intelligence artificielle pour gagner du temps et travailler plus efficacement.
+            </p>
+            <a href={contact.contactUrl} class="mt-7 inline-flex text-sm font-bold text-slate-950 transition group-hover:text-indigo-500">
+              Demander ce conseil →
+            </a>
+          </article>
+
+          <article class="group rounded-3xl bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl novax-reveal">
+            <div class="mb-10 flex items-center justify-between">
+              <span class="rounded-full bg-indigo-400 px-3 py-1.5 text-xs font-bold text-white">Professionnel</span>
+              <span class="text-xs font-bold text-slate-400">02</span>
+            </div>
+            <h3 class="text-2xl font-black leading-tight text-slate-950">Comment rédiger un email professionnel ?</h3>
+            <p class="mt-4 text-sm leading-6 text-slate-600">
+              Quelques règles simples pour communiquer de manière claire, professionnelle et efficace.
+            </p>
+            <a href={contact.contactUrl} class="mt-7 inline-flex text-sm font-bold text-slate-950 transition group-hover:text-indigo-500">
+              Demander ce conseil →
+            </a>
+          </article>
+
+          <article class="group rounded-3xl bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl novax-reveal">
+            <div class="mb-10 flex items-center justify-between">
+              <span class="rounded-full bg-lime-300 px-3 py-1.5 text-xs font-bold text-slate-950">Projets</span>
+              <span class="text-xs font-bold text-slate-400">03</span>
+            </div>
+            <h3 class="text-2xl font-black leading-tight text-slate-950">GitHub & démonstrations</h3>
+            <p class="mt-4 text-sm leading-6 text-slate-600">
+              Découvrez les projets, expérimentations et réalisations techniques publiées sur GitHub pour voir davantage le travail NOVAX.
+            </p>
+            <a href={contact.githubUrl} target="_blank" rel="noreferrer" class="mt-7 inline-flex text-sm font-bold text-slate-950 transition group-hover:text-indigo-500">
+              Voir les projets →
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="a-propos" class="novax-reveal bg-white px-6 py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p class="mb-5 text-xs font-bold uppercase tracking-[0.25em] text-indigo-500">/06 — À propos</p>
+            <h2 class="max-w-xl text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">
+              L'innovation doit être
+              <span class="text-indigo-500">accessible.</span>
+            </h2>
+          </div>
+
+          <div>
+            <p class="text-lg leading-8 text-slate-700">
+              NOVAX est née d'une volonté simple : mettre les compétences numériques et les nouvelles technologies au service de projets concrets.
+            </p>
+            <p class="mt-5 leading-7 text-slate-600">
+              Nous accompagnons les entreprises et les particuliers dans leur transformation numérique, avec une approche accessible, créative et adaptée à leurs besoins.
+            </p>
+            <p class="mt-5 leading-7 text-slate-600">
+              De l'intelligence artificielle à l'automatisation, en passant par la création digitale et l'accompagnement professionnel, NOVAX cherche avant tout des solutions utiles et réalisables.
+            </p>
+            <div class="mt-8">
+              <a href={contact.contactUrl} class="inline-flex rounded-full bg-slate-950 px-6 py-3.5 text-sm font-bold text-white transition hover:-translate-y-1 hover:shadow-xl">
+                Découvrir NOVAX →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-lime-300 px-6 py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid gap-10 lg:grid-cols-2 lg:items-end">
+          <div>
+            <p class="mb-5 text-xs font-bold uppercase tracking-[0.25em] text-slate-700">/07 — Parlons de votre projet</p>
+            <h2 class="max-w-3xl text-5xl font-black leading-[0.95] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">
+              Une idée ?
+              <br />
+              Un besoin ?
+              <br />
+              <span class="text-indigo-600">Parlons-en.</span>
+            </h2>
+          </div>
+
+          <div>
+            <p class="max-w-md text-lg leading-7 text-slate-800">
+              Vous avez un projet, une idée ou simplement une question ? Expliquez-nous votre besoin et voyons ensemble quelle solution NOVAX peut vous proposer.
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href={`mailto:${contact.email}?subject=Projet%20NOVAX`} class="rounded-full bg-slate-950 px-6 py-3.5 text-sm font-bold text-white transition hover:-translate-y-1 hover:shadow-xl">
+                Parler de mon projet →
+              </a>
+              <a
+                href={contact.whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                class="rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-bold text-white transition hover:-translate-y-1 hover:shadow-xl"
+              >
+                WhatsApp
+              </a>
+              <a href={contact.devisUrl} class="rounded-full border border-slate-950/30 bg-white/50 px-6 py-3.5 text-sm font-bold text-slate-950 transition hover:bg-white">
+                Demander un devis
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-slate-950 px-6 py-12 text-white lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid gap-10 border-b border-white/10 pb-10 md:grid-cols-4">
+          <div class="md:col-span-2">
+            <a href="/" class="text-2xl font-black tracking-tight">
+              NOVAX<span class="text-lime-300">.</span>
+            </a>
+            <p class="mt-4 max-w-sm text-sm leading-6 text-slate-400">
+              Solutions numériques pour les entreprises et les particuliers. Innover, simplifier et accompagner.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-bold">Navigation</h3>
+            <ul class="mt-4 space-y-3 text-sm text-slate-400">
+              <li><a href="#solutions" class="transition hover:text-white">Nos solutions</a></li>
+              <li><a href="#services" class="transition hover:text-white">Services</a></li>
+              <li><a href="#realisations" class="transition hover:text-white">Réalisations</a></li>
+              <li><a href="#ressources" class="transition hover:text-white">Ressources</a></li>
+              <li><a href="#a-propos" class="transition hover:text-white">À propos</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-bold">Contact</h3>
+            <ul class="mt-4 space-y-3 text-sm text-slate-400">
+              <li>RDC · Kinshasa</li>
+              <li><a href={`mailto:${contact.email}`} class="transition hover:text-white">{contact.email}</a></li>
+              <li><a href={`tel:${contact.phone}`} class="transition hover:text-white">{contact.phoneDisplay}</a></li>
+              <li><a href={contact.whatsappUrl} target="_blank" rel="noreferrer" class="transition hover:text-white">WhatsApp</a></li>
+              <li><a href={contact.githubUrl} target="_blank" rel="noreferrer" class="transition hover:text-white">GitHub</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flex flex-col justify-between gap-4 pt-8 text-xs text-slate-500 md:flex-row md:items-center">
+          <p>© {new Date().getFullYear()} NOVAX Digital Solutions. Tous droits réservés.</p>
+
+          <div class="flex flex-wrap gap-4 md:gap-6">
+            <a href="#" aria-disabled="true" class="pointer-events-none cursor-not-allowed opacity-50">Instagram</a>
+            <a href="#" aria-disabled="true" class="pointer-events-none cursor-not-allowed opacity-50">Facebook</a>
+            <a href={contact.linkedinUrl} target="_blank" rel="noreferrer" class="transition hover:text-white">LinkedIn</a>
+            <a href={contact.githubUrl} target="_blank" rel="noreferrer" class="transition hover:text-white">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <div id="novax-bot" class="fixed bottom-24 right-5 z-40 hidden w-[340px] rounded-[1.8rem] border border-slate-200 bg-white/95 p-4 shadow-[0_25px_60px_rgba(15,23,42,0.12)] backdrop-blur-sm sm:right-6">
+    <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+      <div class="flex items-center gap-3">
+        <div class="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-indigo-500 via-violet-500 to-lime-300 shadow-sm">
+          <img src="/novax-symbole.png" alt="Logo NOVAX" class="h-7 w-7 object-contain" />
+        </div>
+        <div>
+          <p class="text-sm font-black text-slate-950">NOVAX Assistant</p>
+          <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500">Digital helper</p>
+        </div>
+      </div>
+      <button id="bot-close" type="button" class="text-lg font-bold text-slate-500 transition hover:text-slate-900" aria-label="Fermer l’assistant">×</button>
+    </div>
+
+    <div id="bot-messages" aria-live="polite" class="mt-4 max-h-64 space-y-3 overflow-y-auto pr-1">
+      <div class="max-w-[85%] rounded-2xl bg-slate-100 p-3 text-sm leading-6 text-slate-700 shadow-sm">
+        Bonjour ! Je peux vous orienter vers la bonne solution NOVAX : site vitrine, automatisation, IA, ou accompagnement digital.
+      </div>
+    </div>
+
+    <div id="bot-typing" class="hidden mt-3 w-fit items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+      <span class="inline-flex gap-1">
+        <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-400"></span>
+        <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-400 [animation-delay:0.15s]"></span>
+        <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-400 [animation-delay:0.3s]"></span>
+      </span>
+      NOVAX écrit
+    </div>
+
+    <div class="mt-4 flex flex-wrap gap-2">
+      <button type="button" data-bot-choice="site vitrine" class="rounded-full border border-slate-200 bg-white px-3 py-2 text-[11px] font-bold text-slate-700 transition hover:border-slate-900 hover:text-slate-900">Site vitrine</button>
+      <button type="button" data-bot-choice="automatisation" class="rounded-full border border-slate-200 bg-white px-3 py-2 text-[11px] font-bold text-slate-700 transition hover:border-slate-900 hover:text-slate-900">Automatisation</button>
+      <button type="button" data-bot-choice="devis" class="rounded-full border border-slate-200 bg-white px-3 py-2 text-[11px] font-bold text-slate-700 transition hover:border-slate-900 hover:text-slate-900">Devis</button>
+    </div>
+
+    <form id="bot-form" class="mt-4 flex gap-2">
+      <input
+        id="bot-input"
+        type="text"
+        placeholder="Écrire au bot..."
+        class="w-full rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none"
+        aria-label="Écrire au bot"
+      />
+      <button
+        type="submit"
+        class="rounded-full bg-slate-950 px-3 py-2 text-xs font-bold text-white transition hover:bg-slate-800"
+      >
+        Envoyer
+      </button>
+    </form>
+
+    <div class="mt-4 rounded-2xl border border-lime-200 bg-lime-50 p-3 text-xs leading-5 text-slate-700">
+      Vous avez une idée ? Je peux vous orienter vers la bonne solution NOVAX en fonction de votre besoin.
+    </div>
+  </div>
+
+  <button
+    id="bot-toggle"
+    type="button"
+    aria-label="Ouvrir l’assistant NOVAX"
+    class="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-slate-950 shadow-[0_15px_35px_rgba(15,23,42,0.25)] transition hover:-translate-y-1 hover:shadow-xl sm:right-6"
+  >
+    <img src="/novax-symbole.png" alt="Logo NOVAX" class="h-8 w-8 object-contain" />
+  </button>
+
+  <a
+    href={contact.whatsappUrl}
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Contacter NOVAX sur WhatsApp"
+    class="fixed bottom-24 right-24 z-40 flex items-center gap-3 rounded-full bg-[#25D366] p-3 text-sm font-bold text-white shadow-lg shadow-emerald-500/30 transition hover:-translate-y-1 hover:shadow-xl sm:right-24"
+  >
+    <span class="flex h-8 w-8 items-center justify-center rounded-full bg-white/15 text-base">✆</span>
+  </a>
+
+  <script>
+    const botToggle = document.querySelector('#bot-toggle');
+    const botPanel = document.querySelector('#novax-bot');
+    const botClose = document.querySelector('#bot-close');
+    const botForm = document.querySelector('#bot-form');
+    const botInput = document.querySelector('#bot-input');
+    const botMessages = document.querySelector('#bot-messages');
+    const botTyping = document.querySelector('#bot-typing');
+
+    const scrollBotToBottom = () => {
+      if (botMessages) {
+        botMessages.scrollTop = botMessages.scrollHeight;
+      }
+    };
+
+    const addBotMessage = (message, isUser = false) => {
+      if (!botMessages) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = isUser
+        ? 'ml-auto max-w-[80%] rounded-2xl bg-slate-950 px-3 py-2 text-sm leading-6 text-white shadow-sm transition-all duration-300'
+        : 'max-w-[85%] rounded-2xl bg-slate-100 p-3 text-sm leading-6 text-slate-700 shadow-sm transition-all duration-300';
+      wrapper.textContent = message;
+      botMessages.appendChild(wrapper);
+      scrollBotToBottom();
+    };
+
+    const showTyping = () => {
+      if (botTyping) {
+        botTyping.classList.remove('hidden');
+        botTyping.classList.add('flex');
+      }
+    };
+
+    const hideTyping = () => {
+      if (botTyping) {
+        botTyping.classList.add('hidden');
+        botTyping.classList.remove('flex');
+      }
+    };
+
+    const getBotReply = (message) => {
+      const text = message.toLowerCase();
+
+      if (text.includes('site') || text.includes('vitrine')) {
+        return 'Un site vitrine permet de présenter votre offre, capter des demandes et rassurer vos prospects. On peut partir sur une structure claire, moderne et efficace.';
+      }
+
+      if (text.includes('automatis') || text.includes('ia') || text.includes('chatgpt') || text.includes('claude')) {
+        return 'L’automatisation et l’IA sont parfaites pour réduire le temps de réponse, qualifier les demandes et structurer les informations sans friction.';
+      }
+
+      if (text.includes('prix') || text.includes('devis') || text.includes('budget')) {
+        return 'Le devis dépend du périmètre, du niveau de personnalisation et des outils à mettre en place. On peut en parler concrètement avec votre besoin.';
+      }
+
+      if (text.includes('whatsapp') || text.includes('contact') || text.includes('message')) {
+        return 'Vous pouvez nous écrire directement sur WhatsApp ou via le formulaire de contact pour échanger sur votre projet.';
+      }
+
+      if (text.includes('bonjour') || text.includes('salut')) {
+        return 'Bonjour ! Dites-moi ce que vous souhaitez faire : site, automatisation, IA, data ou accompagnement digital.';
+      }
+
+      return 'Merci pour votre message. On peut étudier votre besoin, définir la bonne solution et vous proposer une piste adaptée au projet.';
+    };
+
+    const handleBotSubmit = (value) => {
+      if (!value) return;
+      addBotMessage(value, true);
+      showTyping();
+
+      window.setTimeout(() => {
+        hideTyping();
+        addBotMessage(getBotReply(value));
+      }, 500);
+    };
+
+    botToggle?.addEventListener('click', () => {
+      botPanel?.classList.toggle('hidden');
+      if (!botPanel?.classList.contains('hidden')) {
+        botInput?.focus();
+      }
+    });
+
+    botClose?.addEventListener('click', () => {
+      botPanel?.classList.add('hidden');
+    });
+
+    document.querySelectorAll('[data-bot-choice]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const value = button.getAttribute('data-bot-choice');
+        if (!value) return;
+        handleBotSubmit(value);
+      });
+    });
+
+    botForm?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const value = botInput?.value.trim();
+      if (botInput) botInput.value = '';
+      handleBotSubmit(value);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        botPanel?.classList.add('hidden');
+      }
+    });
+
+    const revealElements = document.querySelectorAll('.novax-reveal');
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+</Layout>

@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@keyframes novax-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes novax-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 0.8;
+  }
+}
+
+.novax-float {
+  animation: novax-float 4s ease-in-out infinite;
+}
+
+.novax-pulse {
+  animation: novax-pulse 3s ease-in-out infinite;
+}
+
+/* Orbite des 3 points NOVAX */
+
+.novax-orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 190px;
+  height: 190px;
+  transform: translate(-50%, -50%);
+  animation: novax-orbit 12s linear infinite;
+}
+
+.novax-orbit-dot {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-radius: 50%;
+}
+
+/* 3 points espacés régulièrement */
+
+.novax-dot-green {
+  background: #B7FF32;
+  transform: translateX(-50%);
+}
+
+.novax-dot-blue {
+  background: #7182FF;
+  transform: translateX(-50%) rotate(120deg);
+  transform-origin: 5px 95px;
+}
+
+.novax-dot-dark {
+  background: #0B1224;
+  transform: translateX(-50%) rotate(240deg);
+  transform-origin: 5px 95px;
+}
+
+@keyframes novax-orbit {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Animation du titre principal */
+
+.novax-title-line {
+  display: block;
+  overflow: hidden;
+}
+
+.novax-title-line > span {
+  display: inline-block;
+  animation: novax-title-reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.novax-title-line:nth-child(1) > span {
+  animation-delay: 0.1s;
+}
+
+.novax-title-line:nth-child(2) > span {
+  animation-delay: 0.25s;
+}
+
+.novax-title-line:nth-child(3) > span {
+  animation-delay: 0.4s;
+}
+
+@keyframes novax-title-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.novax-title-line > span:hover {
+  animation-name: novax-title-reveal;
+  animation-duration: 0.8s;
+  
+}
+
+/* Animation au scroll */
+
+.novax-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.novax-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

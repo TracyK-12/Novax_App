@@ -1,43 +1,98 @@
-# Astro Starter Kit: Minimal
+# NOVAX Digital Solutions
 
-```sh
-npm create astro@latest -- --template minimal
+Site vitrine V1 de NOVAX, une agence de solutions numériques orientée IA, automatisation, développement web et accompagnement digital.
+
+## Aperçu
+
+NOVAX propose un site vitrine moderne pour présenter ses services, ses réalisations et son accompagnement sur mesure pour les entreprises et les particuliers.
+
+Le site met en avant :
+- IA et automatisation
+- solutions digitales sur mesure
+- sites vitrines et présence digitale
+- accompagnement professionnel et structuration de projets
+- contact direct via WhatsApp et e-mail
+
+## Stack technique
+
+- Astro
+- Tailwind CSS
+- JavaScript natif
+- Vite
+
+## Prérequis
+
+- Node.js >= 22.12.0
+- npm
+
+## Installation
+
+```bash
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Lancement en local
 
-## 🚀 Project Structure
+```bash
+npm run dev
+```
 
-Inside of your Astro project, you'll see the following folders and files:
+Le site est ensuite accessible sur :
+- http://localhost:4321
+
+## Build de production
+
+```bash
+npm run build
+```
+
+Pour prévisualiser le build localement :
+
+```bash
+npm run preview
+```
+
+## Structure du projet
 
 ```text
-/
+novax/
 ├── public/
+│   ├── favicon.svg
+│   ├── favicon.ico
+│   └── novax-symbole.png
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── layouts/
+│   │   └── Layout.astro
+│   ├── pages/
+│   │   ├── contact.astro
+│   │   └── index.astro
+│   └── styles/
+│       └── global.css
+├── astro.config.mjs
+├── package.json
+├── README.md
+├── tsconfig.json
+└── .gitignore
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Déploiement
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Ce projet est prêt pour un déploiement statique sur Vercel.
 
-Any static assets, like images, can be placed in the `public/` directory.
+Étapes recommandées :
+1. importer le dépôt GitHub dans Vercel
+2. sélectionner le dossier racine du projet
+3. utiliser les réglages par défaut
+4. déployer
 
-## 🧞 Commands
+## Contact
 
-All commands are run from the root of the project, from a terminal:
+- Email : kaje.tracy@gmail.com
+- Téléphone : +33 6 98 53 38 64
+- WhatsApp : https://wa.me/33698533864
+- LinkedIn : https://www.linkedin.com/in/tracy-kaje-2146a1255
+- GitHub : https://github.com/TracyK-12
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Notes
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Cette version correspond à une V1 fonctionnelle et professionnelle du site vitrine NOVAX. Le projet est front-end uniquement et peut être étendu plus tard avec un vrai backend ou un système de chat plus avancé.
