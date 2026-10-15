@@ -51,7 +51,7 @@ const subjectLabel = subject === 'devis' ? 'Demande de devis' : 'Demande de proj
         <div class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] sm:p-8">
           <div class="mb-6 flex items-center justify-between gap-3">
             <h2 class="text-2xl font-black text-slate-950">{subjectLabel}</h2>
-            <span class="rounded-full bg-lime-300 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-950">Front-end</span>
+            <span class="rounded-full bg-lime-300 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-950">Contact</span>
           </div>
 
           <form id="contact-form" class="space-y-5" novalidate>
@@ -79,12 +79,8 @@ const subjectLabel = subject === 'devis' ? 'Demande de devis' : 'Demande de proj
           </form>
 
           <div id="form-success" class="mt-5 hidden rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
-            Votre demande est prête. Elle peut être envoyée par e-mail ou WhatsApp pour finaliser le contact avec NOVAX.
+            Votre demande est prête à être transmise à NOVAX.
           </div>
-
-          <p class="mt-4 text-xs leading-5 text-slate-500">
-            Ce formulaire est une préparation front-end uniquement. Aucune donnée n'est stockée sans backend. Il est conçu pour être facilement connectable à un service e-mail ou CRM plus tard.
-          </p>
         </div>
       </div>
     </section>
